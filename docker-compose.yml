@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mongodb:
+    container_name: oasis_mongo
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PWD}
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - /home/fargus/mongo-data:/data/db
+    networks:
+      - oasis-mongo
+    
+networks:
+  oasis-mongo:
+    external: true
+    driver: bridge
+
+volumes:
+  mongo-data:
