@@ -3,7 +3,7 @@ version: '3.8'
 services:
   mongodb:
     container_name: oasis_mongo
-    image: mongo:latest
+    image: mongo:4.0
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PWD}
